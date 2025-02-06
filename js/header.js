@@ -1,6 +1,3 @@
-// =====================
-// HERO SLIDER LOGIC
-// =====================
 const containers = document.querySelectorAll('.hero-image-container');
 const heroText = document.querySelectorAll('.hero-text');
 const prevBtn = document.getElementById('prev-btn');
@@ -102,36 +99,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.querySelector(".navbar");
+const navbar = document.querySelector('.navbar');
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.querySelector(".navbar");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.querySelector(".navbar");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  });
+window.addEventListener('scroll', () => {
+
+if (window.scrollY > 0) { // Adjust the value (0) as needed
+
+navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)'; // Dark background on scroll
+
+navbar.style.backdropFilter = 'blur(5px)'; // Keep the blur effect
+
+} else {
+
+navbar.style.backgroundColor = 'transparent'; // Transparent when at the top
+
+navbar.style.backdropFilter = 'blur(5px)'; // Keep the blur effect
+
+}
+
 });
+
+let currentIndex = 0;
+
+function scrollReviews(direction) {
+  const reviews = document.getElementById('reviews');
+  const reviewCount = document.querySelectorAll('.review').length;
+
+  // Set new index based on direction
+  currentIndex = (currentIndex + direction + (reviewCount / 2)) % reviewCount;
+
+  // Scroll to the new set of reviews
+  reviews.style.transform = `translateX(-${currentIndex * 210}px)`; // 210px is review width + margin
+}

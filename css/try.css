@@ -216,90 +216,240 @@ h1 {
     }
 }
 
-
-
-.h1-grid {
-    margin-bottom: 20px;
-}
-
-.container-grid {
+.products {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
-.text {
-    font-size: 18px;
-    flex: 1;
-    text-align: left;
-}
-
-.btn {
-    padding: 10px 15px;
-    background-color: blue;
-    color: white;
-    border: none;
-    cursor: pointer;
-    flex: 0;
-}
-
-.btn:hover {
-    background-color: darkblue;
-}
-
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 20px;
-    border: 1px solid #ddd;
-}
-
-.image-card {
-    padding: 10px;
+.product {
+    background: white;
+    padding: 15px;
     border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    border: 1px solid grey;
-    background-color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 6px 6px 15px white;
-   
+    max-width: 250px;
 }
 
-.image-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+.product img {
+    width: 100%;
+    border-radius: 8px;
 }
 
-.image-card img {
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 5px;
-    background-color: #333;
+.product h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
 }
 
-.info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ddd;
-    
-    border-radius: 5px;
-}
-
-.description,
-.price {
+.description {
     font-size: 14px;
-    color: #666;
-    margin-top: 5px;
+    color: #555;
+    margin-bottom: 10px;
 }
 
 .price {
     font-size: 16px;
     font-weight: bold;
+    color: #e44d26;
 }
 
+
+/* Styling for the grid container */
+.container-grid {
+    overflow: hidden; /* Clears floats */
+    padding: 1.5rem; /* Adds padding inside the container */
+}
+
+/* Styling for the text block */
+.text {
+    float: left; /* Aligns the text to the left */
+    width: calc(100% - 120px); /* Adjusts width to accommodate the button */
+    padding: 1.5rem;
+    background-color: #f7fafc; /* Light gray background */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Styling for the button */
+.btn {
+    float: right; /* Aligns the button to the right */
+    background-color: #3182ce; /* Blue background */
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px; /* Fully rounded button */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    width: 100px; /* Sets a fixed width for the button */
+    height: 50px; /* Sets a fixed height for the button */
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #2b6cb0; /* Darker blue on hover */
+}
+
+/* Navigation container */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white; /* Light background color */
+    padding: 10px 20px; /* Padding around the content */
+}
+
+/* Heading styling */
+.h1-grid {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem; /* Adjust font size */
+    font-weight: bold; /* Bold font weight */
+    color: #333; /* Dark text color */
+}
+
+/* Right-aligned button */
+.nav-button.right {
+    margin-left: auto;
+    padding: 12px 24px; /* Increased padding for larger button */
+    font-size: 1.2rem; /* Larger font size */
+    background-color: #163e68; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Fully rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button.right:hover {
+    background-color: #414a53; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.nav-button.right:active {
+    background-color: #171f28; /* Even darker shade on click */
+    transform: translateY(2px); /* Press-down effect */
+}
+
+/* Responsive Product Grid */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.product {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.product h3 {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.product .description {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.product .price {
+    font-weight: bold;
+    color: #3182ce;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .text {
+        width: 100%; /* Full width on smaller screens */
+        padding: 1rem;
+    }
+
+    .btn {
+        width: 100%; /* Full width on smaller screens */
+        height: auto;
+        padding: 1rem;
+        float: none;
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .h1-grid {
+        font-size: 1.25rem;
+    }
+
+    .nav-button.right {
+        width: 100%;
+        margin-left: 0;
+        border-radius: 0;
+    }
+}
+
+  .reviews-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .reviews {
+    display: flex;
+    overflow: hidden;
+    width: 600px; /* Controls the visible area */
+  }
+  
+  .review {
+    min-width: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #ccc;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
+  .stars {
+    margin: 10px 0;
+    color: #FFD700;
+  }
+  
+  .stars span {
+    font-size: 20px;
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .left-arrow {
+    left: 10px;
+  }
+  
+  .right-arrow {
+    right: 10px;
+  }
+  
