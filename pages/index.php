@@ -117,27 +117,9 @@
 
 <div class="container-img">
   <h1>Choose Your Category</h1>
-  <div class="categories">
-      <div class="category" id="category1">
-          <img src="../images/4.png" alt="Category 1">
-          <p>Category 1</p>
-      </div>
-      <div class="category" id="category2">
-          <img src="../images/5.jpg" alt="Category 2">
-          <p>Category 2</p>
-      </div>
-      <div class="category" id="category3">
-          <img src="../images/blog5.jpg" alt="Category 3">
-          <p>Category 3</p>
-      </div>
-      <div class="category" id="category4">
-          <img src="../images/banner2.jpg" alt="Category 4">
-          <p>Category 4</p>
-      </div>
-      <div class="category" id="category5">
-          <img src="../images/banner3.jpg" alt="Category 5">
-          <p>Category 5</p>
-      </div>
+  <div class="categories" id="category-list">
+  <!-- Categories will be dynamically inserted here -->
+</div>
   </div>
 </div>
 <h2 class="h1-grid ">Our Featured Products</h2>
@@ -208,42 +190,9 @@
    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem debitis laborum ex.</h1>
     <button class="nav-button right">Right</button>
   </div>
-<section class="products">
+<section class="products" id="product-list">
   <div class="product">
-      <img src="../images/pc-2.jfif" alt="Product 1">
-      <h3>Product 1</h3>
-      <p class="description">This is a great product that does amazing things.</p>
-      <p class="price">$19.99</p>
-  </div>
-  <div class="product">
-      <img src="../images/phone-1.jfif" alt="Product 2">
-      <h3>Product 2</h3>
-      <p class="description">This product is useful for various purposes.</p>
-      <p class="price">$24.99</p>
-  </div>
-  <div class="product">
-      <img src="../images/watch-1.jfif" alt="Product 3">
-      <h3>Product 3</h3>
-      <p class="description">An excellent choice for anyone looking for quality.</p>
-      <p class="price">$29.99</p>
-  </div>
-  <div class="product">
-    <img src="../images/pc-2.jfif" alt="Product 1">
-    <h3>Product 1</h3>
-    <p class="description">This is a great product that does amazing things.</p>
-    <p class="price">$19.99</p>
-</div>
-<div class="product">
-    <img src="../images/phone-1.jfif" alt="Product 2">
-    <h3>Product 2</h3>
-    <p class="description">This product is useful for various purposes.</p>
-    <p class="price">$24.99</p>
-</div>
-<div class="product">
-    <img src="../images/watch-1.jfif" alt="Product 3">
-    <h3>Product 3</h3>
-    <p class="description">An excellent choice for anyone looking for quality.</p>
-    <p class="price">$29.99</p>
+ <!---Products to be displyed here dynamically--->
 </div>
 </section>
 
@@ -305,7 +254,68 @@
   
   <button class="arrow right-arrow" onclick="scrollReviews(1)">&#10095;</button>
 </div>
+<!---Script for dsiaplying Categories--->
+<script>
+fetch('../api/get_categories.php')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // Log the data to see what is returned
+    const categoryList = document.getElementById('category-list');
+    categoryList.innerHTML = ''; // Clear existing content
 
+    if (data.length > 0) {
+      data.forEach(category => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'category';
+        categoryDiv.innerHTML = `
+          <img src="../images/${category.image}" alt="${category.name}"> <!-- Adjust the image path as needed -->
+          <h2>${category.name}</h2>
+        `;
+        categoryList.appendChild(categoryDiv);
+      });
+    } else {
+      categoryList.innerHTML = '<p>No categories available</p>';
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching categories:', error);
+  });
+  </script>
+<!---End of the Categories script--->
+<script>
+    // Fetch products from the API
+    fetch('../api/get_products.php')
+      .then(response => response.json())
+      .then(data => {
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = ''; 
+        if (data.length > 0) {
+          data.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            productDiv.innerHTML = `
+              <h3 class="category">${product.category_name}</h3>
+              <img src="../uploads/${product.main_image}" alt="${product.name}">
+              <h3>${product.name}</h3>
+              <p class="description">${product.description}</p>
+              <p class="price">UGX &nbsp;${parseFloat(product.price).toFixed(2)}</p>
+              <a href="product-details.php?id=${product.product_id}" class="buy">Buy Now</a>
+            `;
+            productList.appendChild(productDiv);
+          });
+        } else {
+          productList.innerHTML = '<p>No products available</p>';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
   <script src="../js/header.js"></script>
 </body>
