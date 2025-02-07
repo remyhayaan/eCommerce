@@ -208,42 +208,9 @@
    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem debitis laborum ex.</h1>
     <button class="nav-button right">Right</button>
   </div>
-<section class="products">
+<section class="products" id="product-list">
   <div class="product">
-      <img src="../images/pc-2.jfif" alt="Product 1">
-      <h3>Product 1</h3>
-      <p class="description">This is a great product that does amazing things.</p>
-      <p class="price">$19.99</p>
-  </div>
-  <div class="product">
-      <img src="../images/phone-1.jfif" alt="Product 2">
-      <h3>Product 2</h3>
-      <p class="description">This product is useful for various purposes.</p>
-      <p class="price">$24.99</p>
-  </div>
-  <div class="product">
-      <img src="../images/watch-1.jfif" alt="Product 3">
-      <h3>Product 3</h3>
-      <p class="description">An excellent choice for anyone looking for quality.</p>
-      <p class="price">$29.99</p>
-  </div>
-  <div class="product">
-    <img src="../images/pc-2.jfif" alt="Product 1">
-    <h3>Product 1</h3>
-    <p class="description">This is a great product that does amazing things.</p>
-    <p class="price">$19.99</p>
-</div>
-<div class="product">
-    <img src="../images/phone-1.jfif" alt="Product 2">
-    <h3>Product 2</h3>
-    <p class="description">This product is useful for various purposes.</p>
-    <p class="price">$24.99</p>
-</div>
-<div class="product">
-    <img src="../images/watch-1.jfif" alt="Product 3">
-    <h3>Product 3</h3>
-    <p class="description">An excellent choice for anyone looking for quality.</p>
-    <p class="price">$29.99</p>
+ <!---Products to be displyed here dynamically--->
 </div>
 </section>
 
@@ -305,7 +272,35 @@
   
   <button class="arrow right-arrow" onclick="scrollReviews(1)">&#10095;</button>
 </div>
-
+<script>
+    // Fetch products from the API
+    fetch('../api/get_products.php')
+      .then(response => response.json())
+      .then(data => {
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = ''; 
+        if (data.length > 0) {
+          data.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'product';
+            productDiv.innerHTML = `
+              <h3 class="category">${product.category_name}</h3>
+              <img src="../uploads/${product.main_image}" alt="${product.name}">
+              <h3>${product.name}</h3>
+              <p class="description">${product.description}</p>
+              <p class="price">UGX &nbsp;${parseFloat(product.price).toFixed(2)}</p>
+              <a href="product-details.php?id=${product.product_id}" class="buy">Buy Now</a>
+            `;
+            productList.appendChild(productDiv);
+          });
+        } else {
+          productList.innerHTML = '<p>No products available</p>';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
   <script src="../js/header.js"></script>
 </body>
