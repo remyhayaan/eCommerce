@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="../css/product.css">
+</head>
+<body>
+               <div class="body">
+    <div class="product-image">
+        <img id="main-image" src="../images/phone-1.jfif" alt="KB Phone 15 Pro">
+        
+        <!-- Thumbnail Images directly below the main image -->
+        <div class="thumbnail-container">
+            <img class="thumbnail" src="../images/watch-1.jfif" alt="KB Phone 15 Pro 2">
+            <img class="thumbnail" src="../images/pc-2.jfif" alt="KB Phone 15 Pro 3">
+            <img class="thumbnail" src="../images/phone-1.jfif" alt="KB Phone 15 Pro 4">
+        </div>
+    </div>
+    
+        
+        
+        <!-- Scrollable Product Details -->
+        <div class="product-details">
+            <h1>KB Phone 15 Pro</h1>
+            <p class="price">Tk 93,400.00 <span class="old-price">Tk 124,400.00</span> <span class="sale-badge">SALE</span> <span class="discount">-25%</span></p>
+            <div class="rating">⭐⭐⭐⭐⭐ <span>(2)</span></div>
+            <p><strong>Vendor:</strong> Mobile</p>
+            <p><strong>Color:</strong> Silver</p>
+
+            <p><strong>Size:</strong></p>
+            <div class="size-options">
+                <button class="size-btn active">6"</button>
+                <button class="size-btn">5.6"</button>
+            </div>
+
+            <p><strong>Quantity:</strong></p>
+            <div class="quantity-container">
+                <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                <span id="quantity">1</span>
+                <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+            </div>
+
+            <div class="buttons">
+                <button class="add-to-cart">Add To Cart</button>
+                <button class="buy-now">Buy It Now</button>
+            </div>
+
+            <p class="safe-checkout">Guaranteed safe checkout</p>
+            <div class="payment-icons">
+                <img src="visa.png" alt="Visa">
+                <img src="mastercard.png" alt="Mastercard">
+                <img src="amex.png" alt="Amex">
+                <img src="paypal.png" alt="PayPal">
+                <img src="discover.png" alt="Discover">
+            </div>
+
+            <button class="collapsible">📄 Description</button>
+            <div class="content">
+                <p>Experience the power of the KB Phone 15 Pro, featuring the latest in cutting-edge technology.</p>
+            </div>
+
+            <button class="collapsible">❓ Terms and Conditions</button>
+            <div class="content">
+                <p>Compare the best-in-class features and read our policy before purchasing.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="recommended-products">
+    <h2>Recommended Products</h2>
+    <div class="recommended-container">
+        <div class="recommended-item">
+            <img src="../images/watch-1.jfif" alt="Recommended Product 1">
+            <p>Product 1 - Tk 45,000</p>
+        </div>
+        <div class="recommended-item">
+            <img src="../images/pc-2.jfif" alt="Recommended Product 2">
+            <p>Product 2 - Tk 55,000</p>
+        </div>
+        <div class="recommended-item">
+            <img src="../images/phone-1.jfif" alt="Recommended Product 3">
+            <p>Product 3 - Tk 65,000</p>
+        </div>
+        <div class="recommended-item">
+            <img src="../images/phone-1.jfif" alt="Recommended Product 4">
+            <p>Product 4 - Tk 75,000</p>
+        </div>
+    </div>
+</div>
+    <script src="../js/product.js"></script>
+</body>
+</html>

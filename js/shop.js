@@ -5,7 +5,9 @@ const productsData = [
         price: 800,
         imgSrc: "../images/pc-2.jfif",
         oldPrice: 1000,
-        discount: "20%"
+        discount: "20%",
+        colors: ["Silver", "Black", "Blue"],
+        sizes: ["13\"", "15\"", "17\""]
     },
     {
         name: "Shirt",
@@ -13,7 +15,9 @@ const productsData = [
         price: 30,
         imgSrc: "../images/watch-1.jfif",
         oldPrice: 40,
-        discount: "25%"
+        discount: "25%",
+        colors: ["Red", "Blue", "Green"],
+        sizes: ["S", "M", "L"]
     },
     {
         name: "Blender",
@@ -21,7 +25,9 @@ const productsData = [
         price: 100,
         imgSrc: "../images/phone-1.jfif",
         oldPrice: 120,
-        discount: "17%"
+        discount: "17%",
+        colors: ["White", "Black", "Silver"],
+        sizes: ["1.5L", "2L"]
     },
     {
         name: "Headphones",
@@ -29,6 +35,8 @@ const productsData = [
         price: 150,
         imgSrc: "../images/watch-1.jfif",
         oldPrice: 200,
+        colors: ["White", "Black", "Silver"],
+        sizes: ["S", "M", "L"],
         discount: "25%"
     },
     {
@@ -37,6 +45,8 @@ const productsData = [
         price: 50,
         imgSrc: "../images/phone-1.jfif",
         oldPrice: 60,
+        colors: ["Red", "Blue", "Green"],
+        sizes: ["S", "M"],
         discount: "17%"
     },
     {
@@ -45,10 +55,14 @@ const productsData = [
         price: 200,
         imgSrc: "../images/pc-2.jfif",
         oldPrice: 250,
-        discount: "20%"
+        discount: "20%",
+        colors: ["White", "Black", "Silver"],
+        sizes: ["S", "M", "L"],
     },
+
 ];
 
+// Render Products
 function renderProducts() {
     const categoryFilter = document.getElementById("category").value;
     const priceFilter = document.getElementById("price").value;
@@ -75,7 +89,7 @@ function renderProducts() {
     const productsContainer = document.getElementById("products");
     productsContainer.innerHTML = '';
 
-    filteredProducts.forEach((product, index) => {  // Add index here
+    filteredProducts.forEach((product, index) => {
         const productElement = document.createElement('div');
         productElement.classList.add('product');
 
@@ -88,7 +102,7 @@ function renderProducts() {
             <img src="${product.imgSrc}" alt="${product.name}">
             <h3>${product.name}</h3>
             <p>$${product.price}</p>
-            <button>Add to Cart</button>
+            <button onclick="addToCart(${index})">Add to Cart</button>
         `;
 
         productsContainer.appendChild(productElement);
@@ -101,7 +115,7 @@ document.getElementById("alphabet").addEventListener("change", renderProducts);
 
 renderProducts();
 
-
+// Show Modal
 function showModal(index) {
     const modal = document.getElementById("productModal");
     const product = productsData[index];
@@ -112,50 +126,72 @@ function showModal(index) {
     document.getElementById("modalOldPrice").textContent = "Tk " + product.oldPrice;
     document.getElementById("modalDiscount").textContent = "-" + product.discount;
 
-    modal.style.display = "flex";
-}
-
-
-const modal = document.getElementById("productModal");
-const closeButton = document.querySelector(".close");
-
-if (closeButton) {
-    closeButton.addEventListener("click", () => {
-        modal.style.display = "none";
+    // Update Color Options
+    const colorContainer = document.querySelector(".color-buttons");
+    colorContainer.innerHTML = "";
+    product.colors.forEach((color, i) => {
+        const colorButton = document.createElement("button");
+        colorButton.classList.add("color-btn");
+        if (i === 0) colorButton.classList.add("active");
+        colorButton.textContent = color;
+        colorButton.onclick = () => {
+            document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("active"));
+            colorButton.classList.add("active");
+        };
+        colorContainer.appendChild(colorButton);
     });
-}
 
-let quantity = 1;
-const quantityDisplay = document.getElementById("quantity");
-const qtyPlusButton = document.getElementById("plus-btn");  // Select by ID
-const qtyMinusButton = document.getElementById("minus-btn"); // Select by ID
+    // Update Size Options
+    const sizeContainer = document.querySelector(".size-buttons");
+    sizeContainer.innerHTML = "";
+    product.sizes.forEach((size, i) => {
+        const sizeButton = document.createElement("button");
+        sizeButton.classList.add("size-btn");
+        if (i === 0) sizeButton.classList.add("active");
+        sizeButton.textContent = size;
+        sizeButton.onclick = () => {
+            document.querySelectorAll(".size-btn").forEach(b => b.classList.remove("active"));
+            sizeButton.classList.add("active");
+        };
+        sizeContainer.appendChild(sizeButton);
+    });
 
-if (qtyPlusButton && qtyMinusButton && quantityDisplay) { // Check if elements exist
-    qtyPlusButton.addEventListener("click", () => {
+    // Reset Quantity to 1
+    let quantity = 1;
+    const quantityDisplay = document.getElementById("quantity");
+    quantityDisplay.textContent = quantity;
+
+    document.getElementById("plus-btn").onclick = () => {
         if (quantity < 10) {
             quantity++;
             quantityDisplay.textContent = quantity;
         }
-    });
+    };
 
-    qtyMinusButton.addEventListener("click", () => {
+    document.getElementById("minus-btn").onclick = () => {
         if (quantity > 1) {
             quantity--;
             quantityDisplay.textContent = quantity;
         }
-    });
+    };
+
+    // Open Modal
+    modal.style.display = "flex";
 }
 
-document.querySelectorAll(".color-btn").forEach(btn => {
-    btn.addEventListener("click", function () {
-        document.querySelectorAll(".color-btn").forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
-    });
+// Close Modal
+document.querySelector(".close").addEventListener("click", () => {
+    document.getElementById("productModal").style.display = "none";
 });
 
-document.querySelectorAll(".size-btn").forEach(btn => {
-    btn.addEventListener("click", function () {
-        document.querySelectorAll(".size-btn").forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
-    });
-});
+// Add to Cart (Product-Specific)
+function addToCart(index) {
+    const product = productsData[index];
+
+    const selectedColor = document.querySelector(".color-btn.active")?.textContent || product.colors[0];
+    const selectedSize = document.querySelector(".size-btn.active")?.textContent || product.sizes[0];
+    const quantity = document.getElementById("quantity").textContent;
+
+    console.log(`Added to cart: ${product.name}, Color: ${selectedColor}, Size: ${selectedSize}, Quantity: ${quantity}`);
+    alert(`Added ${quantity}x ${product.name} (Color: ${selectedColor}, Size: ${selectedSize}) to cart.`);
+}
