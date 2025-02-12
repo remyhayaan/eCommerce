@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../css/try.css" />
   <link rel="stylesheet" href="../css/header1.css" />
   <link rel="stylesheet" href="../css/zoom.css" />
+  <link rel="stylesheet" href="../css/flash.css" />
 <!-- SweetAlert CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
@@ -80,10 +81,25 @@
        <!-- Banners will be dynamically inserted here -->
     </div>
 </section>
+<!---Section for Flash Sales-->
+<section class="flash-sales">
+    <div class="flash-header">
+        <h2>🔥 Flash Sales – Limited Time Only!</h2>
+ 
+    </div>
+
+    <div class="flash-slider-container">
+  
+        <div class="flash-slider" id="flash-slider">
+            <!-- Dynamic Products Will Be Inserted Here -->
+        </div>
+</div>
+</section>
+
 
 <div class="container-img">
   <h1 style="background-color: #040e54; color: #db9b07; text-align: center; padding: 5px; margin: 0; width: 100%;">
-  Choose Your Category
+ Product Category
     </h1>
   <div class="categories" id="category-list">
   <!-- Categories will be dynamically inserted here -->
@@ -135,5 +151,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
   <script src="../js/newArrivals.js"></script> <!-- New JavaScript file for new arrivals -->
   <script src="../js/header.js"></script>
+  <script src="../js/flashSales.js"></script>
+
 </body>
 </html>
