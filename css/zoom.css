@@ -1,0 +1,130 @@
+
+  .product-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .product-image-wrapper img {
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .zoomed-in img {
+    transform: scale(2); /* Zoom in effect */
+    cursor: zoom-out; /* Change cursor when zoomed */
+  }
+
+  /* Optional: Add a lightbox effect */
+  .zoomed-in {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .zoomed-in img {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+
+  /* Close button for zoomed image */
+  .close-zoom {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  /* for reviews*/
+  .reviews-container {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+
+  .reviews {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .review {
+    min-width: 100%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin-right: 20px;
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+  }
+
+  .review p {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #555;
+  }
+
+  .stars {
+    color: #f5c518;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .review p:last-child {
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 32px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+
+  .left-arrow {
+    left: 20px;
+  }
+
+  .right-arrow {
+    right: 20px;
+  }
+
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Animation for fading reviews in */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

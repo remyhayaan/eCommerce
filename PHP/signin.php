@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_name'] = $user['name'];
             $_SESSION['user_email'] = $user['email'];
 
-            echo json_encode(["status" => "success", "message" => "Login successful!", "redirect" => "../pages/dashboard.php"]);
+            echo json_encode(["status" => "success", "message" => "Login successful!", "redirect" => "../pages/shop.php"]);
         } else {
             echo json_encode(["status" => "error", "message" => "Invalid email or password."]);
         }
