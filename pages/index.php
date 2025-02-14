@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/try.css" />
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+
 </head>
 <body>
   <div class="hero">
@@ -124,8 +125,9 @@
 </div>
 <h2 class="h1-grid ">Our Featured Products</h2>
   <div class="navigation">
-   <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem debitis laborum ex.</h1>
-    <button class="nav-button right">Right</button>
+   <h1>Electronics products continue to drive innovation and shape the
+   way we live, work, and interact with our environment.</h1>
+    <button class="nav-button right">View All</button>
   </div>
 <section class="products">
   <div class="product">
