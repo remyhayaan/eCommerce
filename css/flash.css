@@ -1,0 +1,196 @@
+/* Flash Sales Section */
+.flash-sales {
+    background: linear-gradient(135deg, #1e1e1e, #ff6600);
+    padding: 30px;
+    text-align: center;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.flash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Countdown Timer */
+.countdown-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #ffd700;
+    font-size: 18px;
+    animation: pulse 1.2s infinite alternate;
+}
+
+/* Slider Container */
+.flash-slider-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Product Slider */
+.flash-slider {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    white-space: nowrap;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Product Box */
+.flash-product {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 15px;
+    width: 240px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    backdrop-filter: blur(5px);
+}
+
+.flash-product img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.flash-product:hover img {
+    transform: scale(1.08);
+}
+
+.flash-product:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(255, 102, 0, 0.6);
+}
+
+/* Discount Badge */
+.discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.6);
+}
+
+/* Flash Product */
+.flash-product {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 15px;
+    width: 240px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    backdrop-filter: blur(5px);
+}
+
+/* Countdown Container */
+.countdown-container {
+    padding-top: 10px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.countdown-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #ffd700;
+    font-size: 18px;
+    animation: pulse 1.2s infinite alternate;
+}
+
+/* Animations */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Buy Now Button */
+.buy-now {
+    background: #ff6600;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    box-shadow: 0px 4px 12px rgba(255, 102, 0, 0.6);
+}
+
+.buy-now:hover {
+    background: #cc3300;
+    transform: scale(1.1);
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: none;
+    padding: 14px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Animations */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
