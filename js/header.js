@@ -121,15 +121,3 @@ navbar.style.backdropFilter = 'blur(5px)'; // Keep the blur effect
 
 });
 
-let currentIndex = 0;
-
-function scrollReviews(direction) {
-  const reviews = document.getElementById('reviews');
-  const reviewCount = document.querySelectorAll('.review').length;
-
-  // Set new index based on direction
-  currentIndex = (currentIndex + direction + (reviewCount / 2)) % reviewCount;
-
-  // Scroll to the new set of reviews
-  reviews.style.transform = `translateX(-${currentIndex * 210}px)`; // 210px is review width + margin
-}

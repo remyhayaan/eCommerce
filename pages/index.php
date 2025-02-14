@@ -26,8 +26,8 @@
     <!-- Navigation Links -->
     <div class="links">
       <a href="#">Home</a>
+      <a href="../pages/shop.html">Shop</a>
       <a href="#">About</a>
-      <a href="#">Services</a>
       <a href="#">Contact</a>
     </div>
   
@@ -52,7 +52,7 @@
       </div>
       <div class="mobile-nav-links">
         <a href="#">Home</a>
-        <a href="#">About</a>
+        <a href="#">Shop</a>
         <a href="#">Services</a>
         <a href="#">Contact</a>
       </div>
@@ -124,8 +124,9 @@
 </div>
 <h2 class="h1-grid ">Our Featured Products</h2>
   <div class="navigation">
-   <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem debitis laborum ex.</h1>
-    <button class="nav-button right">Right</button>
+   <h1>Electronics products continue to drive innovation and shape the
+   way we live, work, and interact with our environment.</h1>
+    <button class="nav-button right">View</button>
   </div>
 <section class="products">
   <div class="product">
@@ -203,57 +204,24 @@
       <button class="search-btn"><i class="fas fa-search"></i></button>
   </div>
 </div>
-
-<div class="reviews-container">
-  <button class="arrow left-arrow" onclick="scrollReviews(-1)">&#10094;</button>
-  
-  <div class="reviews" id="reviews">
+<!-- Customer Reviews Section -->
+<!-- Customer Reviews Section -->
+<h2 class="h1-grid">What Our Customers Say</h2>
+<div class="customer-reviews">
     <div class="review">
-      <p>"Great service! Highly recommend!"</p>
-      <div class="stars">
-        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-      </div>
-      <p>- John Doe</p>
+        <p class="review-text">"Great quality products and fast delivery. Highly recommend!"</p>
+        <h4 class="reviewer">- Jane Doe</h4>
     </div>
     <div class="review">
-      <p>"Very satisfied with the quality of work."</p>
-      <div class="stars">
-        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
-      </div>
-      <p>- Jane Smith</p>
+        <p class="review-text">"Excellent customer service and amazing deals. Will buy again!"</p>
+        <h4 class="reviewer">- John Smith</h4>
     </div>
     <div class="review">
-      <p>"A wonderful experience from start to finish."</p>
-      <div class="stars">
-        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span><span>&#9734;</span>
-      </div>
-      <p>- Alice Johnson</p>
+        <p class="review-text">"I love the variety of products available. Everything is top-notch!"</p>
+        <h4 class="reviewer">- Sarah Lee</h4>
     </div>
-    <div class="review">
-      <p>"The team was very professional and efficient."</p>
-      <div class="stars">
-        <span>&#9733;</span><span>&#9733;</span><span>&#9734;</span><span>&#9734;</span><span>&#9734;</span>
-      </div>
-      <p>- Bob Brown</p>
-    </div>
-    <div class="review">
-      <p>"Excellent customer support and service."</p>
-      <div class="stars">
-        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9734;</span>
-      </div>
-      <p>- Mary Davis</p>
-    </div>
-    <div class="review">
-      <p>"I would definitely use their services again."</p>
-      <div class="stars">
-        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-      </div>
-      <p>- James Wilson</p>
-    </div>
-  </div>
-  
-  <button class="arrow right-arrow" onclick="scrollReviews(1)">&#10095;</button>
 </div>
+
 <!---Script for dsiaplying Categories--->
 <script>
 fetch('../api/get_categories.php')
