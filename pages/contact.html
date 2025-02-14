@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            max-width: 900px;
+            width: 95%; /* Occupy most of the screen width */
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .organization-info,
+        .contact-form {
+            flex: 1 1 300px; /* Each section takes at least 300px, can grow */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        .organization-info h2,
+        .contact-form h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .organization-info p {
+            margin-bottom: 10px;
+        }
+
+        .organization-info ul {
+            padding-left: 20px;
+        }
+
+        .contact-form label,
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column; /* Stack sections vertically */
+            }
+
+            .organization-info,
+            .contact-form {
+                flex: 1 1 100%; /* Each section takes full width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <div class="organization-info">
+            <h2>Our Organization</h2>
+            <p>Insert your organization's description here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Contact us for more information:</p>
+            <ul>
+                <li>Email: info@example.com</li>
+                <li>Phone: +1234567890</li>
+                <li>Address: 123 Organization St, City, Country</li>
+            </ul>
+        </div>
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let message = document.getElementById('message').value;
+
+            if (name === "" || email === "" || message === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            alert("Message sent successfully!");
+            this.reset();
+        });
+    </script>
+</body>
+</html>

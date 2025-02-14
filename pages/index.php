@@ -33,9 +33,9 @@
     <!-- Navigation Links -->
     <div class="links">
       <a href="#">Home</a>
-      <a href="../pages/shop.html">Shop</a>
+      <a href="../pages/shop.php">Shop</a>
       <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="../pages/contact.html">Contact</a>
     </div>
   
     <!-- Icons on the right -->
@@ -122,36 +122,36 @@
 <section class="products">
   <div class="product">
       <img src="../images/pc-2.jfif" alt="Product 1">
-      <h3>Product 1</h3>
+      <a href="../pages/product.html"><h3>Product 1</h3></a>
       <p class="description">This is a great product that does amazing things.</p>
       <p class="price">$19.99</p>
   </div>
   <div class="product">
       <img src="../images/phone-1.jfif" alt="Product 2">
-      <h3>Product 2</h3>
+      <a href="../pages/product.html"><h3>Product 2</h3></a>
       <p class="description">This product is useful for various purposes.</p>
       <p class="price">$24.99</p>
   </div>
   <div class="product">
       <img src="../images/watch-1.jfif" alt="Product 3">
-      <h3>Product 3</h3>
+      <a href="../pages/product.html"><h3>Product 3</h3></a>
       <p class="description">An excellent choice for anyone looking for quality.</p>
       <p class="price">$29.99</p>
   </div>
   <div class="product">
     <img src="../images/pc-2.jfif" alt="Product 1">
-    <h3>Product 1</h3>
+    <a href="../pages/product.html"><h3>Product 1</h3></a>
     <p class="description">This is a great product that does amazing things.</p>
     <p class="price">$19.99</p>
 </div>
 <div class="product">
     <img src="../images/phone-1.jfif" alt="Product 2">
-    <h3>Product 2</h3>
+    <a href="../pages/product.html"><h3>Product 2</h3></a>
     <p class="description">This product is useful for various purposes.</p>
     <p class="price">$24.99</p>
 </div>
 <div class="product">
-    <img src="../images/watch-1.jfif" alt="Product 3">
+<a href="../pages/product.html"><h3>Product 3</h3></a>
     <h3>Product 3</h3>
     <p class="description">An excellent choice for anyone looking for quality.</p>
     <p class="price">$29.99</p>
