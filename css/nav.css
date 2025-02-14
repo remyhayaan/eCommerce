@@ -1,0 +1,247 @@
+/* General Navbar Styling */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: #000; /* Black Background */
+    color: #fff; /* White Text */
+  }
+  
+  /* Logo (Large Screens Only) */
+  .nav-logo span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Navigation Links (Large Screens) */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #007bff;
+  }
+  
+  /* Icons Section */
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .icon {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .icon:hover {
+    color: #007bff;
+  }
+  
+  /* Notification Badges */
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hamburger Menu (Only Small Screens) */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Sidebar Menu (Hidden Initially) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden off-screen */
+    width: 250px;
+    height: 100vh;
+    background: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    transition: left 0.3s ease;
+  }
+  
+  /* Sidebar Open */
+  .sidebar.show {
+    left: 0;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 10px 15px;
+  }
+  
+  /* Sidebar Logo */
+  .sidebar-logo {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Sidebar Links */
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .sidebar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar-links a:hover {
+    color: #007bff;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .nav-container {
+      justify-content: space-between;
+    }
+  
+    /* Hamburger Menu Left */
+    .menu-toggle {
+      display: flex;
+      order: -1; /* Moves it to the left */
+    }
+  
+    /* Hide Logo & Nav Links on Small Screens */
+    .nav-logo, .nav-links {
+      display: none;
+    }
+  
+    /* Keep Icons on the Right */
+    .nav-icons {
+      display: flex;
+      justify-content: flex-end;
+      flex-grow: 1;
+    }
+  }
+  .search-popup {
+    position: fixed;
+    top: 0; /* Move it to the top */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+    z-index: 1000;
+    padding-top: 20px; /* Adjust this to move the search bar further down or up */
+  }
+  
+  .search-popup.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Adjust the search box */
+  /* Search Popup Styling */
+/* Search Popup Styling */
+.search-popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height:50px;
+    max-width: 350px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Show Search Popup */
+.search-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Close Button */
+.close-search {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Search Input */
+.search-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Search Button */
+.search-btn {
+    background: #007bff;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.search-btn:hover {
+    background: #0056b3;
+}
